@@ -1,25 +1,19 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class delete
+Public Class Dbarang
     Dim CS As String = "Server=localhost;Database=penjualan;Uid=root;Pwd=;"
-    Dim C As New MySqlConnection(CS)
+    Dim c As New MySqlConnection(CS)
 
-    Private Sub delete_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        loaddata()
+    Private Sub dataload()
+        Dim query As String = "SELECT * FROM barang"
+        Dim data As New MySqlDataAdapter(query, c)
+        Dim table As New DataTable()
+        data.Fill(table)
+        DataGridView1.DataSource = table
     End Sub
 
-
-
-    Private Sub loaddata()
-        Try
-            Dim query As New MySqlDataAdapter("SELECT * FROM user", C)
-            Dim table As New DataTable
-            query.Fill(table)
-
-            DataGridView1.DataSource = table
-        Catch ex As Exception
-            MsgBox("Error loading data: " & ex.Message)
-        End Try
+    Private Sub Dbarang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        dataload()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -29,18 +23,18 @@ Public Class delete
 
             If System.Windows.Forms.DialogResult.Yes Then
                 Try
-                    Dim query As String = "DELETE FROM user WHERE id_user=@ID"
-                    Dim cmd As New MySqlCommand(query, C)
+                    Dim query As String = "DELETE FROM barang WHERE id_barang=@ID"
+                    Dim cmd As New MySqlCommand(query, c)
                     cmd.Parameters.AddWithValue("@ID", slctd)
 
-                    C.Open()
+                    c.Open()
                     cmd.ExecuteNonQuery()
                     MsgBox("Berhasil menghapus data")
-                    loaddata()
+                    dataload()
                 Catch ex As MySqlException
                     MsgBox("Error deleting data: " & ex.Message, MsgBoxStyle.Critical)
                 Finally
-                    C.Close()
+                    c.Close()
                 End Try
             End If
         Else
@@ -49,8 +43,7 @@ Public Class delete
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
         Me.Close()
-        akun.Show()
+        barang.Show()
     End Sub
 End Class

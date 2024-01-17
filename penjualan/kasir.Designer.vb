@@ -64,6 +64,7 @@ Partial Class kasir
         Me.hargaB = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.totalH = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.namaK = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -73,6 +74,7 @@ Partial Class kasir
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -432,10 +434,10 @@ Partial Class kasir
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.namaB, Me.jumlahB, Me.hargaB, Me.totalH, Me.namaK})
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 174)
+        Me.DataGridView1.Location = New System.Drawing.Point(25, 174)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(951, 344)
+        Me.DataGridView1.Size = New System.Drawing.Size(987, 186)
         Me.DataGridView1.TabIndex = 12
         '
         'namaB
@@ -473,11 +475,23 @@ Partial Class kasir
         Me.namaK.ReadOnly = True
         Me.namaK.Width = 200
         '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AllowUserToDeleteRows = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(25, 389)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.Size = New System.Drawing.Size(987, 186)
+        Me.DataGridView2.TabIndex = 13
+        '
         'kasir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1454, 653)
+        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
@@ -506,6 +520,7 @@ Partial Class kasir
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -551,4 +566,5 @@ Partial Class kasir
     Friend WithEvents hargaB As DataGridViewTextBoxColumn
     Friend WithEvents totalH As DataGridViewTextBoxColumn
     Friend WithEvents namaK As DataGridViewTextBoxColumn
+    Friend WithEvents DataGridView2 As DataGridView
 End Class

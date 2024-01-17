@@ -1,5 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
-Public Class create
+Public Class createB
     Dim CS As String = "Server=localhost;Database=penjualan;Uid=root;Pwd=;"
     Dim C As New MySqlConnection(CS)
     Private Sub create_Load(sender As Object, e As EventArgs) Handles MyBase.Load

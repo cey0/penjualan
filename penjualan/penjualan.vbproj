@@ -155,6 +155,30 @@
     <Compile Include="crudA\update.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="barang.Designer.vb">
+      <DependentUpon>barang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="barang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crudB\Cbarang.Designer.vb">
+      <DependentUpon>Cbarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="crudB\Cbarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crudB\Dbarang.Designer.vb">
+      <DependentUpon>Dbarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="crudB\Dbarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="crudB\Ubarang.Designer.vb">
+      <DependentUpon>Ubarang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="crudB\Ubarang.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="kasir.Designer.vb">
       <DependentUpon>kasir.vb</DependentUpon>
     </Compile>
@@ -198,6 +222,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="crudA\update.resx">
       <DependentUpon>update.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="barang.resx">
+      <DependentUpon>barang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crudB\Cbarang.resx">
+      <DependentUpon>Cbarang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crudB\Dbarang.resx">
+      <DependentUpon>Dbarang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crudB\Ubarang.resx">
+      <DependentUpon>Ubarang.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="kasir.resx">
       <DependentUpon>kasir.vb</DependentUpon>
