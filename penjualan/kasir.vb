@@ -13,6 +13,22 @@ Public Class kasir
         Me.Hide()
         loginF.Show()
     End Sub
+    Private Function GetIduserFromNama(nama As String) As Integer
+        Dim iduser As Integer = -1
+
+        Try
+            Dim quey As String = "SELECT id_user FROM user WHERE nama=@nama"
+            Dim cmd As New MySqlCommand(quey, c)
+            cmd.Parameters.AddWithValue("@nama", nama)
+            c.Open()
+            iduser = Convert.ToInt32(cmd.ExecuteScalar())
+        Catch ex As Exception
+            MsgBox("error geting id_user: " & ex.Message)
+        Finally
+            c.Close()
+        End Try
+        Return iduser
+    End Function
 
     Private Function GetIdBarangFromNama(namaBarang As String) As Integer
         Dim idBarang As Integer = -1 ' Default value or error handling
@@ -43,39 +59,37 @@ Public Class kasir
             MsgBox("error:" & ex.Message)
         End Try
     End Sub
-    Private Sub ProsesTransaksi(idBarang As Integer, idUser As Integer, jumlahBarang As Integer, tunai As Decimal)
-        Try
-            Dim CS As String = "Server=localhost;Database=penjualan;Uid=root;Pwd=;"
-            Dim c As New MySqlConnection(CS)
-            c.Open()
 
-            Dim cmd As New MySqlCommand("ProsesTransaksi", c)
-            cmd.CommandType = CommandType.StoredProcedure
+    Private Sub tampiluser()
+        Dim slctd As String = ComboBox2.SelectedItem?.ToString()
 
-            ' Parameters for the stored procedure
-            cmd.Parameters.AddWithValue("@p_id_barang", idBarang)
-            cmd.Parameters.AddWithValue("@p_id_user", idUser)
-            cmd.Parameters.AddWithValue("@p_jumlah_barang", jumlahBarang)
-            cmd.Parameters.AddWithValue("@p_tunai", tunai)
+        If Not String.IsNullOrWhiteSpace(slctd) Then
+            Try
+                Dim iduser As Integer = GetIduserFromNama(slctd)
 
-            ' Output parameters
-            cmd.Parameters.Add("@p_id_transaksi", MySqlDbType.Int32).Direction = ParameterDirection.Output
-            cmd.Parameters.Add("@p_kembalian", MySqlDbType.Decimal).Direction = ParameterDirection.Output
+                ' Use the correct table name (assuming "user" is the correct table)
+                Dim query As String = "SELECT * FROM user WHERE id_user=@id"
+                Dim cmd As New MySqlCommand(query, c)
+                cmd.Parameters.AddWithValue("@id", iduser)
 
-            ' Execute the stored procedure
-            cmd.ExecuteNonQuery()
+                c.Open()
+                Dim rd As MySqlDataReader = cmd.ExecuteReader()
 
-            ' Retrieve output parameters
-            Dim idTransaksi As Integer = Convert.ToInt32(cmd.Parameters("@p_id_transaksi").Value)
-            Dim kembalian As Decimal = Convert.ToDecimal(cmd.Parameters("@p_kembalian").Value)
+                While rd.Read()
+                    Dim id As String = rd.GetString("id_user")
 
-            ' Handle the results as needed
-
-            c.Close()
-        Catch ex As Exception
-            MsgBox("Error during transaction processing: " & ex.Message)
-        End Try
+                    namaUser.Text = id
+                End While
+            Catch ex As Exception
+                MessageBox.Show("Error getting user details: " & ex.Message)
+            Finally
+                c.Close()
+            End Try
+        End If
     End Sub
+
+
+
     Private Sub tampil()
         Dim slctd As String = ComboBox1.SelectedItem?.ToString()
 
@@ -94,11 +108,16 @@ Public Class kasir
                 While rd.Read()
                     Dim price As Decimal = rd.GetDecimal("harga")
                     Dim name As String = rd.GetString("nama_barang")
+                    Dim id As Integer = rd.GetInt64("id_barang")
+                    Dim stok As Integer = rd.GetInt64("stock")
                     Dim TH As Decimal = price * qty
 
                     nama.Text = name
                     harga.Text = price.ToString()
                     total.Text = TH.ToString()
+                    barangI.Text = id.ToString()
+                    stock.Text = stok.ToString()
+
                 End While
             Catch ex As Exception
                 MessageBox.Show("Error getting barang details: " & ex.Message)
@@ -111,8 +130,7 @@ Public Class kasir
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         tampil()
     End Sub
-
-    Private Sub kasir_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub databarang()
         Try
             Dim query As String = "SELECT nama_barang FROM barang"
             Dim cmd As New MySqlCommand(query, c)
@@ -130,8 +148,33 @@ Public Class kasir
         Finally
             c.Close()
         End Try
+    End Sub
+    Private Sub datauser()
+        Try
+            Dim query As String = "SELECT nama FROM user"
+            Dim cmd As New MySqlCommand(query, c)
+            Dim rd As MySqlDataReader
 
+            c.Open()
+            rd = cmd.ExecuteReader()
+
+            While rd.Read()
+                Dim nama As String = rd.GetString("nama")
+                ComboBox2.Items.Add(nama)
+            End While
+        Catch ex As Exception
+            MessageBox.Show("Error loading user data: " & ex.Message)
+        Finally
+            c.Close()
+        End Try
+    End Sub
+    Private Sub kasir_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+
+        datauser()
+        databarang()
         tampildata()
+        tampiluser()
     End Sub
 
     Private Sub jumlah_ValueChanged(sender As Object, e As EventArgs) Handles jumlah.ValueChanged
@@ -143,7 +186,7 @@ Public Class kasir
         Dim price As Decimal
         Dim qty As Integer
         Dim ttl As Decimal
-        Dim namaK As String = Kname.Text.Trim()
+        Dim namaK As String = ComboBox2.Text
 
         If String.IsNullOrWhiteSpace(name) Then
             MessageBox.Show("Name is null or empty.")
@@ -204,15 +247,47 @@ Public Class kasir
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
-            Dim namaBarang As String = ComboBox1.SelectedItem.ToString()
-            Dim idBarang As Integer = GetIdBarangFromNama(namaBarang)
-            Dim jumlahBarang As Integer = CInt(jumlah.Value)
-            Dim tunai As Decimal = money.Text
+            c.Open()
+            Dim query As String = "INSERT INTO `transaksi`( `id_user`, `id_barang`, `jumlah_barang`, `subtotal`, `diskon`, `tunai`, `kembalian`) VALUES ( @UID, @BID, @JB, @ST, @DK, @TN, @KB) "
+            Dim cmd As New MySqlCommand(query, c)
+            cmd.Parameters.AddWithValue("@UID", namaUser.Text)
+            cmd.Parameters.AddWithValue("@BID", barangI.Text)
+            cmd.Parameters.AddWithValue("@JB", jumlah.Value)
+            cmd.Parameters.AddWithValue("@ST", total.Text)
+            cmd.Parameters.AddWithValue("@UID", namaUser.Text)
+            cmd.Parameters.AddWithValue("@UID", namaUser.Text)
+            cmd.Parameters.AddWithValue("@UID", namaUser.Text)
 
-            ProsesTransaksi(idBarang, loggedInUserId, jumlahBarang, tunai)
-            ' Optionally, you can update your DataGridView or other UI elements here
         Catch ex As Exception
-            MessageBox.Show("Error processing transaction: " & ex.Message)
+
         End Try
+    End Sub
+
+    Private Sub name_TextChanged(sender As Object, e As EventArgs) Handles namaUser.TextChanged
+
+    End Sub
+
+    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
+        tampiluser()
+    End Sub
+
+    Private Sub Label13_Click(sender As Object, e As EventArgs) Handles subtotal.Click
+
+    End Sub
+
+    Private Sub Panel8_Paint(sender As Object, e As PaintEventArgs) Handles Panel8.Paint
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) 
+
+    End Sub
+
+    Private Sub Panel9_Paint(sender As Object, e As PaintEventArgs) Handles Panel9.Paint
+
+    End Sub
+
+    Private Sub Label10_Click(sender As Object, e As EventArgs) Handles Label10.Click
+
     End Sub
 End Class
