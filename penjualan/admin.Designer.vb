@@ -23,10 +23,10 @@ Partial Class admin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -42,23 +42,14 @@ Partial Class admin
         Me.Panel1.Size = New System.Drawing.Size(787, 184)
         Me.Panel1.TabIndex = 0
         '
-        'Label1
+        'Button3
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(376, 6)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 13)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "menu"
-        '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(3, 40)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(781, 31)
-        Me.Button1.TabIndex = 1
-        Me.Button1.Text = "account"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.Button3.Location = New System.Drawing.Point(3, 114)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(781, 31)
+        Me.Button3.TabIndex = 3
+        Me.Button3.Text = "barangg"
+        Me.Button3.UseVisualStyleBackColor = True
         '
         'Button2
         '
@@ -69,14 +60,23 @@ Partial Class admin
         Me.Button2.Text = "laporan"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button3
+        'Button1
         '
-        Me.Button3.Location = New System.Drawing.Point(3, 114)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(781, 31)
-        Me.Button3.TabIndex = 3
-        Me.Button3.Text = "barangg"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.Button1.Location = New System.Drawing.Point(3, 40)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(781, 31)
+        Me.Button1.TabIndex = 1
+        Me.Button1.Text = "account"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(376, 6)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(33, 13)
+        Me.Label1.TabIndex = 0
+        Me.Label1.Text = "menu"
         '
         'admin
         '

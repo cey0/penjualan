@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class kasir
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class kasir
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
@@ -29,11 +29,15 @@ Partial Class kasir
         Me.ComboBox2 = New System.Windows.Forms.ComboBox()
         Me.Label22 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
+        Me.barangI = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.stock = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.Button7 = New System.Windows.Forms.Button()
         Me.total = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.harga = New System.Windows.Forms.Label()
@@ -43,6 +47,7 @@ Partial Class kasir
         Me.nama = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel4 = New System.Windows.Forms.Panel()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.subtotal = New System.Windows.Forms.Label()
@@ -60,20 +65,33 @@ Partial Class kasir
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.namaB = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.iduser = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idbarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Nbarang = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.harga_barang = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.jumlahB = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.hargaB = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.totalH = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.namaK = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.stock = New System.Windows.Forms.TextBox()
-        Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.barangI = New System.Windows.Forms.TextBox()
+        Me.total_harga = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.subttl = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DS = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.uang = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ttl = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.change = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Panel8 = New System.Windows.Forms.Panel()
+        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Panel9 = New System.Windows.Forms.Panel()
+        Me.Button6 = New System.Windows.Forms.Button()
+        Me.Label13 = New System.Windows.Forms.Label()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.idU = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idb = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.nama_B = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.jumlahBar = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.hrg = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.total_ha = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button8 = New System.Windows.Forms.Button()
+        Me.struk = New System.Drawing.Printing.PrintDocument()
         Me.Panel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
         Me.Panel3.SuspendLayout()
@@ -83,9 +101,9 @@ Partial Class kasir
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel8.SuspendLayout()
         Me.Panel9.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -100,7 +118,7 @@ Partial Class kasir
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(1317, 20)
+        Me.Button1.Location = New System.Drawing.Point(1402, 20)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(99, 30)
         Me.Button1.TabIndex = 3
@@ -117,7 +135,7 @@ Partial Class kasir
         Me.Panel1.Controls.Add(Me.Button1)
         Me.Panel1.Location = New System.Drawing.Point(-3, 0)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(1460, 81)
+        Me.Panel1.Size = New System.Drawing.Size(1714, 81)
         Me.Panel1.TabIndex = 4
         '
         'namaUser
@@ -155,11 +173,45 @@ Partial Class kasir
         Me.Panel2.Controls.Add(Me.Label3)
         Me.Panel2.Controls.Add(Me.ComboBox1)
         Me.Panel2.Controls.Add(Me.Label1)
-        Me.Panel2.Location = New System.Drawing.Point(12, 87)
+        Me.Panel2.Location = New System.Drawing.Point(99, 85)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(399, 81)
         Me.Panel2.TabIndex = 5
         Me.Panel2.Tag = "barang"
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.Location = New System.Drawing.Point(206, 21)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(51, 13)
+        Me.Label9.TabIndex = 9
+        Me.Label9.Text = "id barang"
+        '
+        'barangI
+        '
+        Me.barangI.Enabled = False
+        Me.barangI.Location = New System.Drawing.Point(284, 18)
+        Me.barangI.Name = "barangI"
+        Me.barangI.Size = New System.Drawing.Size(110, 20)
+        Me.barangI.TabIndex = 8
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Location = New System.Drawing.Point(3, 46)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(33, 13)
+        Me.Label6.TabIndex = 7
+        Me.Label6.Text = "stock"
+        '
+        'stock
+        '
+        Me.stock.Enabled = False
+        Me.stock.Location = New System.Drawing.Point(81, 43)
+        Me.stock.Name = "stock"
+        Me.stock.Size = New System.Drawing.Size(110, 20)
+        Me.stock.TabIndex = 6
         '
         'Label3
         '
@@ -190,7 +242,7 @@ Partial Class kasir
         'Panel3
         '
         Me.Panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.Panel3.Controls.Add(Me.Button5)
+        Me.Panel3.Controls.Add(Me.Button7)
         Me.Panel3.Controls.Add(Me.total)
         Me.Panel3.Controls.Add(Me.Label11)
         Me.Panel3.Controls.Add(Me.harga)
@@ -200,20 +252,20 @@ Partial Class kasir
         Me.Panel3.Controls.Add(Me.nama)
         Me.Panel3.Controls.Add(Me.Label4)
         Me.Panel3.Controls.Add(Me.Label5)
-        Me.Panel3.Location = New System.Drawing.Point(434, 87)
+        Me.Panel3.Location = New System.Drawing.Point(521, 85)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(565, 81)
+        Me.Panel3.Size = New System.Drawing.Size(552, 81)
         Me.Panel3.TabIndex = 6
         Me.Panel3.Tag = "barang"
         '
-        'Button5
+        'Button7
         '
-        Me.Button5.Location = New System.Drawing.Point(496, 2)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(67, 77)
-        Me.Button5.TabIndex = 10
-        Me.Button5.Text = "submit"
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.Button7.Location = New System.Drawing.Point(484, 1)
+        Me.Button7.Name = "Button7"
+        Me.Button7.Size = New System.Drawing.Size(67, 77)
+        Me.Button7.TabIndex = 11
+        Me.Button7.Text = "submit"
+        Me.Button7.UseVisualStyleBackColor = True
         '
         'total
         '
@@ -295,14 +347,23 @@ Partial Class kasir
         Me.Label5.TabIndex = 0
         Me.Label5.Text = "detail barang"
         '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(330, 3)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(67, 77)
+        Me.Button5.TabIndex = 10
+        Me.Button5.Text = "submit"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
         'Panel4
         '
         Me.Panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel4.Controls.Add(Me.Label14)
         Me.Panel4.Controls.Add(Me.subtotal)
-        Me.Panel4.Location = New System.Drawing.Point(1005, 87)
+        Me.Panel4.Location = New System.Drawing.Point(1094, 87)
         Me.Panel4.Name = "Panel4"
-        Me.Panel4.Size = New System.Drawing.Size(437, 81)
+        Me.Panel4.Size = New System.Drawing.Size(450, 81)
         Me.Panel4.TabIndex = 7
         Me.Panel4.Tag = "barang"
         '
@@ -310,7 +371,7 @@ Partial Class kasir
         '
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(335, 2)
+        Me.Label14.Location = New System.Drawing.Point(120, 21)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(51, 55)
         Me.Label14.TabIndex = 8
@@ -331,7 +392,7 @@ Partial Class kasir
         Me.Panel5.Controls.Add(Me.Button2)
         Me.Panel5.Controls.Add(Me.money)
         Me.Panel5.Controls.Add(Me.Label15)
-        Me.Panel5.Location = New System.Drawing.Point(1043, 183)
+        Me.Panel5.Location = New System.Drawing.Point(1145, 183)
         Me.Panel5.Name = "Panel5"
         Me.Panel5.Size = New System.Drawing.Size(399, 81)
         Me.Panel5.TabIndex = 6
@@ -367,7 +428,7 @@ Partial Class kasir
         Me.Panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.Panel6.Controls.Add(Me.mula)
         Me.Panel6.Controls.Add(Me.Label16)
-        Me.Panel6.Location = New System.Drawing.Point(1042, 266)
+        Me.Panel6.Location = New System.Drawing.Point(1144, 266)
         Me.Panel6.Name = "Panel6"
         Me.Panel6.Size = New System.Drawing.Size(399, 60)
         Me.Panel6.TabIndex = 8
@@ -396,10 +457,11 @@ Partial Class kasir
         'Panel7
         '
         Me.Panel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel7.Controls.Add(Me.Button5)
         Me.Panel7.Controls.Add(Me.Label19)
         Me.Panel7.Controls.Add(Me.Label20)
         Me.Panel7.Controls.Add(Me.Label21)
-        Me.Panel7.Location = New System.Drawing.Point(1043, 496)
+        Me.Panel7.Location = New System.Drawing.Point(1145, 496)
         Me.Panel7.Name = "Panel7"
         Me.Panel7.Size = New System.Drawing.Size(399, 82)
         Me.Panel7.TabIndex = 9
@@ -437,7 +499,7 @@ Partial Class kasir
         '
         'Button3
         '
-        Me.Button3.Location = New System.Drawing.Point(1046, 609)
+        Me.Button3.Location = New System.Drawing.Point(1135, 616)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(192, 32)
         Me.Button3.TabIndex = 10
@@ -446,7 +508,7 @@ Partial Class kasir
         '
         'Button4
         '
-        Me.Button4.Location = New System.Drawing.Point(1250, 609)
+        Me.Button4.Location = New System.Drawing.Point(1342, 616)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(192, 32)
         Me.Button4.TabIndex = 11
@@ -458,19 +520,36 @@ Partial Class kasir
         Me.DataGridView1.AllowUserToAddRows = False
         Me.DataGridView1.AllowUserToDeleteRows = False
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.namaB, Me.jumlahB, Me.hargaB, Me.totalH, Me.namaK})
-        Me.DataGridView1.Location = New System.Drawing.Point(25, 174)
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.iduser, Me.idbarang, Me.Nbarang, Me.harga_barang, Me.jumlahB, Me.total_harga, Me.subttl, Me.DS, Me.uang, Me.ttl, Me.change})
+        Me.DataGridView1.Location = New System.Drawing.Point(4, 170)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.ReadOnly = True
-        Me.DataGridView1.Size = New System.Drawing.Size(987, 186)
+        Me.DataGridView1.Size = New System.Drawing.Size(1138, 225)
         Me.DataGridView1.TabIndex = 12
         '
-        'namaB
+        'iduser
         '
-        Me.namaB.HeaderText = "nama barang"
-        Me.namaB.Name = "namaB"
-        Me.namaB.ReadOnly = True
-        Me.namaB.Width = 200
+        Me.iduser.HeaderText = "id_user"
+        Me.iduser.Name = "iduser"
+        Me.iduser.ReadOnly = True
+        '
+        'idbarang
+        '
+        Me.idbarang.HeaderText = "id_barang"
+        Me.idbarang.Name = "idbarang"
+        Me.idbarang.ReadOnly = True
+        '
+        'Nbarang
+        '
+        Me.Nbarang.HeaderText = "nama_barang"
+        Me.Nbarang.Name = "Nbarang"
+        Me.Nbarang.ReadOnly = True
+        '
+        'harga_barang
+        '
+        Me.harga_barang.HeaderText = "harga_barang"
+        Me.harga_barang.Name = "harga_barang"
+        Me.harga_barang.ReadOnly = True
         '
         'jumlahB
         '
@@ -479,81 +558,61 @@ Partial Class kasir
         Me.jumlahB.ReadOnly = True
         Me.jumlahB.Width = 200
         '
-        'hargaB
+        'total_harga
         '
-        Me.hargaB.HeaderText = "harga barang"
-        Me.hargaB.Name = "hargaB"
-        Me.hargaB.ReadOnly = True
-        Me.hargaB.Width = 200
+        Me.total_harga.HeaderText = "total_harga"
+        Me.total_harga.Name = "total_harga"
+        Me.total_harga.ReadOnly = True
         '
-        'totalH
+        'subttl
         '
-        Me.totalH.HeaderText = "total harga"
-        Me.totalH.Name = "totalH"
-        Me.totalH.ReadOnly = True
-        Me.totalH.Width = 150
+        Me.subttl.HeaderText = "subtotal"
+        Me.subttl.Name = "subttl"
+        Me.subttl.ReadOnly = True
         '
-        'namaK
+        'DS
         '
-        Me.namaK.HeaderText = "nama kasir"
-        Me.namaK.Name = "namaK"
-        Me.namaK.ReadOnly = True
-        Me.namaK.Width = 200
+        Me.DS.HeaderText = "diskon"
+        Me.DS.Name = "DS"
+        Me.DS.ReadOnly = True
         '
-        'DataGridView2
+        'uang
         '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AllowUserToDeleteRows = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(25, 389)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        Me.DataGridView2.Size = New System.Drawing.Size(987, 186)
-        Me.DataGridView2.TabIndex = 13
+        Me.uang.HeaderText = "tunai"
+        Me.uang.Name = "uang"
+        Me.uang.ReadOnly = True
         '
-        'stock
+        'ttl
         '
-        Me.stock.Enabled = False
-        Me.stock.Location = New System.Drawing.Point(81, 43)
-        Me.stock.Name = "stock"
-        Me.stock.Size = New System.Drawing.Size(110, 20)
-        Me.stock.TabIndex = 6
+        Me.ttl.HeaderText = "total"
+        Me.ttl.Name = "ttl"
+        Me.ttl.ReadOnly = True
         '
-        'Label6
+        'change
         '
-        Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(3, 46)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(33, 13)
-        Me.Label6.TabIndex = 7
-        Me.Label6.Text = "stock"
-        '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(206, 21)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(51, 13)
-        Me.Label9.TabIndex = 9
-        Me.Label9.Text = "id barang"
-        '
-        'barangI
-        '
-        Me.barangI.Enabled = False
-        Me.barangI.Location = New System.Drawing.Point(284, 18)
-        Me.barangI.Name = "barangI"
-        Me.barangI.Size = New System.Drawing.Size(110, 20)
-        Me.barangI.TabIndex = 8
+        Me.change.HeaderText = "kembalian"
+        Me.change.Name = "change"
+        Me.change.ReadOnly = True
         '
         'Panel8
         '
         Me.Panel8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel8.Controls.Add(Me.ComboBox3)
         Me.Panel8.Controls.Add(Me.Label10)
-        Me.Panel8.Location = New System.Drawing.Point(1043, 328)
+        Me.Panel8.Location = New System.Drawing.Point(1145, 328)
         Me.Panel8.Name = "Panel8"
         Me.Panel8.Size = New System.Drawing.Size(399, 81)
         Me.Panel8.TabIndex = 14
         Me.Panel8.Tag = "barang"
+        '
+        'ComboBox3
+        '
+        Me.ComboBox3.FormattingEnabled = True
+        Me.ComboBox3.Items.AddRange(New Object() {"5", "10", "50"})
+        Me.ComboBox3.Location = New System.Drawing.Point(-1, 16)
+        Me.ComboBox3.Name = "ComboBox3"
+        Me.ComboBox3.Size = New System.Drawing.Size(395, 21)
+        Me.ComboBox3.TabIndex = 16
         '
         'Label10
         '
@@ -576,21 +635,99 @@ Partial Class kasir
         'Panel9
         '
         Me.Panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.Panel9.Controls.Add(Me.Button6)
+        Me.Panel9.Controls.Add(Me.Label13)
         Me.Panel9.Controls.Add(Me.Label12)
-        Me.Panel9.Location = New System.Drawing.Point(1042, 408)
+        Me.Panel9.Location = New System.Drawing.Point(1144, 408)
         Me.Panel9.Name = "Panel9"
         Me.Panel9.Size = New System.Drawing.Size(399, 92)
         Me.Panel9.TabIndex = 15
         Me.Panel9.Tag = "barang"
         '
+        'Button6
+        '
+        Me.Button6.Location = New System.Drawing.Point(268, 3)
+        Me.Button6.Name = "Button6"
+        Me.Button6.Size = New System.Drawing.Size(126, 20)
+        Me.Button6.TabIndex = 12
+        Me.Button6.Text = "hitung kembali"
+        Me.Button6.UseVisualStyleBackColor = True
+        '
+        'Label13
+        '
+        Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Location = New System.Drawing.Point(83, 29)
+        Me.Label13.Name = "Label13"
+        Me.Label13.Size = New System.Drawing.Size(51, 55)
+        Me.Label13.TabIndex = 11
+        Me.Label13.Text = "0"
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idU, Me.idb, Me.nama_B, Me.jumlahBar, Me.hrg, Me.total_ha})
+        Me.DataGridView2.Location = New System.Drawing.Point(497, 405)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        Me.DataGridView2.Size = New System.Drawing.Size(642, 155)
+        Me.DataGridView2.TabIndex = 16
+        '
+        'idU
+        '
+        Me.idU.HeaderText = "id_user"
+        Me.idU.Name = "idU"
+        Me.idU.ReadOnly = True
+        '
+        'idb
+        '
+        Me.idb.HeaderText = "id_barang"
+        Me.idb.Name = "idb"
+        Me.idb.ReadOnly = True
+        '
+        'nama_B
+        '
+        Me.nama_B.HeaderText = "nama_barang"
+        Me.nama_B.Name = "nama_B"
+        Me.nama_B.ReadOnly = True
+        '
+        'jumlahBar
+        '
+        Me.jumlahBar.HeaderText = "jumlah_barang"
+        Me.jumlahBar.Name = "jumlahBar"
+        Me.jumlahBar.ReadOnly = True
+        '
+        'hrg
+        '
+        Me.hrg.HeaderText = "harga_barang"
+        Me.hrg.Name = "hrg"
+        Me.hrg.ReadOnly = True
+        '
+        'total_ha
+        '
+        Me.total_ha.HeaderText = "total_harga"
+        Me.total_ha.Name = "total_ha"
+        Me.total_ha.ReadOnly = True
+        '
+        'Button8
+        '
+        Me.Button8.Location = New System.Drawing.Point(927, 616)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(192, 32)
+        Me.Button8.TabIndex = 17
+        Me.Button8.Text = "cetak"
+        Me.Button8.UseVisualStyleBackColor = True
+        '
         'kasir
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1454, 653)
+        Me.ClientSize = New System.Drawing.Size(1556, 780)
+        Me.Controls.Add(Me.Button8)
+        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.Panel9)
         Me.Controls.Add(Me.Panel8)
-        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Panel6)
@@ -619,11 +756,11 @@ Partial Class kasir
         Me.Panel7.ResumeLayout(False)
         Me.Panel7.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel8.ResumeLayout(False)
         Me.Panel8.PerformLayout()
         Me.Panel9.ResumeLayout(False)
         Me.Panel9.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -663,12 +800,6 @@ Partial Class kasir
     Friend WithEvents Button4 As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button5 As Button
-    Friend WithEvents namaB As DataGridViewTextBoxColumn
-    Friend WithEvents jumlahB As DataGridViewTextBoxColumn
-    Friend WithEvents hargaB As DataGridViewTextBoxColumn
-    Friend WithEvents totalH As DataGridViewTextBoxColumn
-    Friend WithEvents namaK As DataGridViewTextBoxColumn
-    Friend WithEvents DataGridView2 As DataGridView
     Friend WithEvents ComboBox2 As ComboBox
     Friend WithEvents namaUser As TextBox
     Friend WithEvents Label9 As Label
@@ -679,4 +810,28 @@ Partial Class kasir
     Friend WithEvents Label10 As Label
     Friend WithEvents Label12 As Label
     Friend WithEvents Panel9 As Panel
+    Friend WithEvents ComboBox3 As ComboBox
+    Friend WithEvents Label13 As Label
+    Friend WithEvents Button6 As Button
+    Friend WithEvents DataGridView2 As DataGridView
+    Friend WithEvents Button7 As Button
+    Friend WithEvents Button8 As Button
+    Friend WithEvents struk As Printing.PrintDocument
+    Friend WithEvents idU As DataGridViewTextBoxColumn
+    Friend WithEvents idb As DataGridViewTextBoxColumn
+    Friend WithEvents nama_B As DataGridViewTextBoxColumn
+    Friend WithEvents jumlahBar As DataGridViewTextBoxColumn
+    Friend WithEvents hrg As DataGridViewTextBoxColumn
+    Friend WithEvents total_ha As DataGridViewTextBoxColumn
+    Friend WithEvents iduser As DataGridViewTextBoxColumn
+    Friend WithEvents idbarang As DataGridViewTextBoxColumn
+    Friend WithEvents Nbarang As DataGridViewTextBoxColumn
+    Friend WithEvents harga_barang As DataGridViewTextBoxColumn
+    Friend WithEvents jumlahB As DataGridViewTextBoxColumn
+    Friend WithEvents total_harga As DataGridViewTextBoxColumn
+    Friend WithEvents subttl As DataGridViewTextBoxColumn
+    Friend WithEvents DS As DataGridViewTextBoxColumn
+    Friend WithEvents uang As DataGridViewTextBoxColumn
+    Friend WithEvents ttl As DataGridViewTextBoxColumn
+    Friend WithEvents change As DataGridViewTextBoxColumn
 End Class
