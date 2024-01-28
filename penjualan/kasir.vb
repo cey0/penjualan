@@ -53,13 +53,14 @@ Public Class kasir
 
 
     Private Sub tampiluser()
+        'untuk merender data dari databse 
         Dim slctd As String = ComboBox2.SelectedItem?.ToString()
 
         If Not String.IsNullOrWhiteSpace(slctd) Then
             Try
                 Dim iduser As Integer = GetIduserFromNama(slctd)
 
-                ' Use the correct table name (assuming "user" is the correct table)
+
                 Dim query As String = "SELECT * FROM user WHERE id_user=@id"
                 Dim cmd As New MySqlCommand(query, c)
                 cmd.Parameters.AddWithValue("@id", iduser)
@@ -83,6 +84,7 @@ Public Class kasir
 
 
     Private Sub tampil()
+        'menampilkan data yang dipilih sesuai id_barang yang dipilih
         Dim slctd As String = ComboBox1.SelectedItem?.ToString()
 
         If Not String.IsNullOrWhiteSpace(slctd) Then
@@ -123,6 +125,7 @@ Public Class kasir
         tampil()
     End Sub
     Private Sub databarang()
+        'untuk merender data dari databse 
         Try
             Dim query As String = "SELECT nama_barang FROM barang"
             Dim cmd As New MySqlCommand(query, c)
@@ -143,6 +146,7 @@ Public Class kasir
     End Sub
     Private Sub datauser()
         Try
+            'untuk merender data dari databse 
             Dim query As String = "SELECT nama FROM user"
             Dim cmd As New MySqlCommand(query, c)
             Dim rd As MySqlDataReader
@@ -182,6 +186,7 @@ Public Class kasir
 
         For Each row As DataGridViewRow In DataGridView2.Rows
             If Not row.IsNewRow Then
+                'insert data ke datagridview untuk di insert dan bisa di cetak
                 Dim idU As Int64 = Convert.ToInt64(row.Cells("idU").Value)
                 Dim idB As Int64 = Convert.ToInt64(row.Cells("idb").Value)
                 Dim jmlh As Int32 = Convert.ToInt32(row.Cells("jumlahBar").Value)
@@ -242,14 +247,17 @@ Public Class kasir
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Try
+            'koneksi database
             Using c As New MySqlConnection("Server=localhost;Database=penjualan;Uid=root;Pwd=;")
                 c.Open()
 
                 For Each row As DataGridViewRow In DataGridView1.Rows
                     If Not row.IsNewRow Then
+                        'query untuk insert
                         Dim query As String = "INSERT INTO transaksi (id_user,id_barang,jumlah_barang,subtotal,diskon,tunai,total,kembalian) VALUES (@iduser, @idbarang, @jumlahB, @subttl, @DS, @uang, @ttl, @change);"
 
                         Dim cmd As New MySqlCommand(query, c)
+                        'menambahkan input ke value
                         cmd.Parameters.AddWithValue("@iduser", row.Cells("iduser").Value)
                         cmd.Parameters.AddWithValue("@idbarang", row.Cells("idbarang").Value)
                         cmd.Parameters.AddWithValue("@jumlahB", row.Cells("jumlahB").Value)
@@ -301,11 +309,9 @@ Public Class kasir
 
     Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
         Dim slctd As String = ComboBox3.SelectedItem.ToString().TrimEnd("%"c)
+        Dim amount As Decimal = Label14.Text
 
-        ' Assuming 90000 is the amount you want to calculate the discount for
-        Dim amount As Decimal = Label14.Text ' Replace this with your actual amount
-
-
+        'menghitung diskon dengan menngkalikan total dengan diskon dan hasil dari perkalian itu akan dikurangin ke totalnya
         Dim percentageValue As Decimal
         If Decimal.TryParse(slctd, percentageValue) Then
             Dim cal As Decimal = (slctd / 100) * amount
@@ -319,12 +325,13 @@ Public Class kasir
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
+        'mengihtung kembalian
         Dim perhitungan As Decimal = mula.Text - Label13.Text
         Label19.Text = perhitungan.ToString()
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-
+        'menambahkan data data dari form ke datagridview2
         Dim idU As Int64 = Convert.ToInt64(namaUser.Text)
         Dim idB As Int64 = Convert.ToInt64(barangI.Text)
         Dim NB As String = ComboBox1.Text
@@ -339,6 +346,7 @@ Public Class kasir
         totalsum()
     End Sub
     Private Function totalbarang() As Integer
+        'menghtung jumlah barang yang ada di table
         Dim TB As Integer = 0
         For Each row As DataGridViewRow In DataGridView1.Rows
             If Not row.IsNewRow Then
@@ -356,6 +364,7 @@ Public Class kasir
 
 
     Private Sub totalsum()
+        'menghitung total harga barang dan jadikan label ke total harga barang itu
         Dim totalSum As Int64 = 0
 
         For Each row As DataGridViewRow In DataGridView2.Rows
@@ -386,7 +395,7 @@ Public Class kasir
     End Sub
 
     Private Sub pd_PrintPage(sender As Object, e As PrintPageEventArgs) Handles PD.PrintPage
-
+        'menyimpan font kedalam variabel
         Dim f8 As New Font("Calibri", 8, FontStyle.Regular)
         Dim f10 As New Font("Calibri", 10, FontStyle.Regular)
         Dim f10b As New Font("Calibri", 10, FontStyle.Bold)
@@ -435,7 +444,6 @@ Public Class kasir
             e.Graphics.DrawString($"{erow.Cells("jumlahB").Value}", f8, Brushes.Black, leftmargin + 200, tall)
             e.Graphics.DrawString($"{erow.Cells("ttl").Value}", f8, Brushes.Black, rightmargin - 80, tall, right)
         Next
-
         tall += 20
         e.Graphics.DrawString("------------------------------------", f10, Brushes.Black, centermargin, tall, center)
         tall += 20
